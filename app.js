@@ -14,7 +14,6 @@ const app = express();
 
 mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true });
 
-
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'))
 
@@ -28,9 +27,9 @@ app.use(session({
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 // use ejs-locals for all ejs templates:
 app.engine('ejs', engine);
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }))
