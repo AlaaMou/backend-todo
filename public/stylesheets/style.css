@@ -1,8 +1,43 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+ background-color: #3a4d6b;
 }
 
-a {
-  color: #00B7FF;
+div.todo:nth-of-type(odd){
+  background-color: rgba(0, 0, 0, .2)
+}
+div.todo:nth-of-type(even){
+  background-color: rgba(0, 0, 0, .4)
+}
+
+.done{
+  color : grey;
+  text-decoration: line-through;
+}
+
+div.todo span.trash{
+  opacity: 0;
+}
+
+div.todo:hover span.trash{
+  opacity: 1;
+  transition: opacity .5s linear;
+}
+
+
+.content{
+  display: none
+}
+div.todo:hover .content{
+  display: inline-block;
+}
+
+#main-box{
+  width:50%;
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 700px) {
+  #main-box{
+    width: 90%
+  }
 }

@@ -1,7 +1,38 @@
 <% layout('layouts/boilerplate') -%>
 
-<div class="jumbotron bg-success text-light rounded-0">
-  <div class="container">
+<div class="container text-center my-5 text-light rounded-0">
     <h1>My Todo List</h1>
+</div>
+
+
+<div id="main-box" class="mx-auto bg-dark text-light pt-4 my-5">
+  <h2 class="mx-3 py-2">
+    Get It Done <i class="fas fa-hand-peace"></i><a class="float-right" data-toggle="collapse" href="#addTodo" role="button"><i class="fas fa-plus"></i></a>
+    </h2>
+  
+  <div id="addTodo" class="collapse my-4 px-3 py-3">
+   <form action="/todos" method="POST">
+     <div class="form-group">
+       <input class="form-control" type="text" name="todo[title]" placeholder="Todo Title"  required autofocus>
+     </div>
+     <div class="form-group">
+       <input class="form-control" type="text" name="todo[content]" placeholder="Todo Content">
+     </div>
+     <button class="btn btn-success btn-sm">Submit</button>
+   </form>
   </div>
+
+  
+  <% todos.forEach(function(todo){ %>
+  
+  <div class="todo py-3">
+     <form class="d-inline mx-2" action="todos/<%=todo._id%>?_method=DELETE" method="POST">
+       <button class="bg-transparent border-0 text-danger" title="Delete"><span class="trash"><i class="fas fa-trash"></i></span></button>
+     </form>
+     <p class="d-inline"><%= todo.title %> <span class="content ml-5">" <%= todo.content %> "</span></p>
+  </div>
+ 
+  
+  
+  <% }) %>
 </div>
