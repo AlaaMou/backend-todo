@@ -1,3 +1,3 @@
 # backend-todo
 
-<img src="todo.png">
+<img src="todo.gif">
